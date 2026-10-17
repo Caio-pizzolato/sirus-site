@@ -12,7 +12,7 @@ HTML, CSS e JavaScript, com checkout da Stripe no Vercel (mesma base da Vera e d
 - **Tipografia:** Italiana (títulos), Bodoni Moda (itálicos) e Manrope (texto).
 
 ## Banner
-- **Computador** (tela deitada): `img/banners/hero-desktop.webp` (2752 px, ampliada com IA a partir da foto original) e `hero-desktop-1920.webp` para telas Full HD. Por cima vai o filtro de espelho negro (`.hero-veu` / `.hero-espelho` no CSS).
+- **Computador** (tela deitada): `img/banners/hero-desktop.webp` (2752 px, ampliada com IA a partir da foto original) e `hero-desktop-1920.webp` para telas Full HD. Por cima vai só uma camada escura uniforme (`.hero-veu` no CSS; ajuste a opacidade em `rgba(6,4,3,.5)`).
 - **Celular** (tela em pé): o vídeo `img/video/salao-720.mp4`, ou `salao-1080.mp4` em telas maiores. A imagem de capa enquanto o vídeo carrega é `salao-poster.jpg`.
 - O vídeo só é baixado no celular. No computador ele nem carrega.
 

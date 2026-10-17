@@ -701,3 +701,9 @@ h1 em,h2 em{background:none;-webkit-background-clip:initial;background-clip:init
 /* menos brilho no emblema */
 .emblema-arte .pontas{animation-duration:220s}
 .hero-foto img,.hero-video{filter:brightness(.9) contrast(1.08) saturate(.9)}
+
+/* banner: apenas escurecido (sem reflexo, sem vinheta, sem desfoque) */
+.hero-espelho{display:none}
+.hero-foto img,.hero-video{filter:none}
+.hero-veu{background:rgba(6,4,3,.5)}
+@media (orientation:portrait),(max-width:720px){.hero-veu{background:rgba(6,4,3,.55)}}
