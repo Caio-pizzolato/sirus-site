@@ -15,7 +15,7 @@
   <script src="js/traducao.js" defer></script>
   <script src="js/moedas.js" defer></script>
   <script src="js/app.js" defer></script>
-  <link rel="preload" as="image" href="img/banners/hero-desktop.webp" type="image/webp" media="(orientation: landscape)">
+  <link rel="preload" as="image" type="image/webp" imagesrcset="img/banners/hero-desktop-1920.webp 1920w, img/banners/hero-desktop.webp 2752w" imagesizes="100vw" media="(orientation: landscape)">
   <script src="js/home.js" defer></script>
 </head>
 <body class="home">
@@ -24,14 +24,13 @@
   <section class="hero" aria-label="Sírius">
     <picture class="hero-foto">
       <source media="(orientation: portrait)" srcset="img/video/salao-poster.jpg">
-      <source type="image/webp" srcset="img/banners/hero-desktop.webp">
+      <source type="image/webp" srcset="img/banners/hero-desktop-1920.webp 1920w, img/banners/hero-desktop.webp 2752w" sizes="100vw">
       <img src="img/banners/hero-desktop.jpg" alt="" fetchpriority="high">
     </picture>
     <video class="hero-video" muted loop playsinline preload="none" poster="img/video/salao-poster.jpg" aria-hidden="true"></video>
     <div class="hero-veu" aria-hidden="true"></div>
-    <div class="hero-moldura" aria-hidden="true"></div>
+    <div class="hero-espelho" aria-hidden="true"></div>
     <div class="hero-txt">
-      <svg class="hero-estrela" viewBox="0 0 100 100" aria-hidden="true"><defs><linearGradient id="hg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f6e7bf"/><stop offset=".5" stop-color="#c9a35f"/><stop offset="1" stop-color="#e8d3a0"/></linearGradient></defs><path d="M50 2 L55 45 L98 50 L55 55 L50 98 L45 55 L2 50 L45 45 Z" fill="url(#hg)"/><path d="M50 22 L53 47 L78 50 L53 53 L50 78 L47 53 L22 50 L47 47 Z" fill="url(#hg)" opacity=".75" transform="rotate(45 50 50)"/></svg>
       <small>Maison Horlogère</small>
       <h1>The first clock <em>was a star</em></h1>
       <p>Sírius, the brightest star in the night sky, once told the ancient world that a new year had begun. Today it lends its name to a house devoted to the finest timepieces.</p>
@@ -44,12 +43,11 @@
   </section>
 
   <section class="secao revela" id="colecoes">
-    <div class="secao-topo centro"><div><span class="sobretitulo">Four constellations</span><h2>The Collections</h2><div class="ornamento" aria-hidden="true"><i></i>✦<i></i></div></div></div>
+    <div class="secao-topo centro"><div><span class="sobretitulo">Sírius</span><h2>The Collections</h2></div></div>
     <div class="arcos" id="arcos"></div>
   </section>
 
   <section class="manifesto revela">
-    <div class="ornamento" aria-hidden="true"><i></i>✦<i></i></div>
     <p>A watch is the only object we wear that is always working for us. Ours should be worthy of that.</p>
     <small>Sírius</small>
   </section>
@@ -113,7 +111,7 @@
   </section>
 
   <section class="secao revela" id="faq">
-    <div class="secao-topo centro"><div><span class="sobretitulo">Questions</span><h2>Frequently Asked</h2><div class="ornamento" aria-hidden="true"><i></i>✦<i></i></div></div></div>
+    <div class="secao-topo centro"><div><span class="sobretitulo">Questions</span><h2>Frequently Asked</h2></div></div>
     <div class="faq">
       <details><summary>How is my watch delivered?</summary><p>Every timepiece is shipped insured, in discreet packaging, and requires a signature on delivery. Tracking is sent by email.</p></details>
       <details><summary>Can I see a watch before buying?</summary><p>Yes. Request a private viewing through our concierge and we will arrange a time with you.</p></details>

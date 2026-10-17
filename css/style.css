@@ -667,3 +667,37 @@ body.home .topo:not(.rolou){backdrop-filter:none;-webkit-backdrop-filter:none}
 body.home .topo{background-origin:border-box;background-repeat:no-repeat}
 body.home .topo:not(.rolou){border-bottom-color:transparent;border-bottom-width:0}
 .col-barra[hidden]{display:none}
+
+/* ===== refinamento: menos ornamento, formatos quadrados, espelho negro ===== */
+/* espelho negro sobre foto e vídeo do banner */
+.hero-veu{background:
+  linear-gradient(90deg,rgba(8,6,4,.88) 0%,rgba(8,6,4,.66) 30%,rgba(8,6,4,.22) 56%,rgba(8,6,4,.06) 78%,rgba(8,6,4,.12) 100%),
+  linear-gradient(180deg,rgba(8,6,4,.6) 0%,rgba(8,6,4,.12) 24%,rgba(8,6,4,.12) 68%,rgba(8,6,4,.82) 100%)}
+.hero-espelho{position:absolute;inset:0;pointer-events:none;z-index:1;
+  background:linear-gradient(118deg,rgba(255,244,222,.10) 0%,rgba(255,244,222,.035) 18%,rgba(255,244,222,0) 34%),
+             radial-gradient(120% 90% at 70% 45%,rgba(0,0,0,0) 40%,rgba(0,0,0,.45) 100%);
+}
+.hero-espelho::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:linear-gradient(90deg,transparent,rgba(201,163,95,.5),transparent)}
+.hero-txt{z-index:3}
+@media (orientation:portrait),(max-width:720px){
+  .hero-veu{background:linear-gradient(180deg,rgba(8,6,4,.62) 0%,rgba(8,6,4,.18) 22%,rgba(8,6,4,.22) 46%,rgba(8,6,4,.84) 72%,rgba(8,6,4,.97) 100%)}
+}
+/* tipografia mais sóbria: dourado sólido no lugar do degradê */
+h1 em,h2 em{background:none;-webkit-background-clip:initial;background-clip:initial;color:var(--ouro-claro)}
+.emblema-lista li>span{background:none;-webkit-background-clip:initial;background-clip:initial;color:var(--ouro)}
+.btn-ouro{background:var(--ouro);color:#1a1209}
+.btn-ouro:hover{background:var(--ouro-claro);color:#1a1209;box-shadow:none}
+/* coleções: quadrados */
+.arcos{gap:22px}
+.arco-janela{aspect-ratio:1/1;border-radius:0;border-color:rgba(201,163,95,.3)}
+.arco-janela::before{border-radius:0;inset:10px;border-color:rgba(201,163,95,.14)}
+.arco-janela svg{width:46%}
+.arco-txt{justify-items:start;text-align:left}
+.arco{text-align:left}
+/* produtos: quadrados */
+.card-img,.card-vazio .vazio-img,.foto-principal,.thumbs button,.item img{aspect-ratio:1/1}
+.card-vazio .vazio-img{border-color:rgba(201,163,95,.2)}
+.estrela-vazio{width:38%}
+/* menos brilho no emblema */
+.emblema-arte .pontas{animation-duration:220s}
+.hero-foto img,.hero-video{filter:brightness(.9) contrast(1.08) saturate(.9)}

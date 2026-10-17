@@ -172,7 +172,7 @@
   const ESTRELA = '<svg class="estrela-vazio" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="46" fill="none" stroke="currentColor" stroke-width=".6"/><circle cx="50" cy="50" r="42" fill="none" stroke="currentColor" stroke-width=".3" opacity=".6"/>' + Array.from({ length: 12 }, (_, i) => { const a = i * 30 * Math.PI / 180, r1 = 36, r2 = i % 3 ? 40 : 42; return `<line x1="${50 + r1 * Math.sin(a)}" y1="${50 - r1 * Math.cos(a)}" x2="${50 + r2 * Math.sin(a)}" y2="${50 - r2 * Math.cos(a)}" stroke="currentColor" stroke-width="${i % 3 ? .5 : 1}"/>`; }).join("") + '<path d="M50 22 L52.2 47.8 L78 50 L52.2 52.2 L50 78 L47.8 52.2 L22 50 L47.8 47.8 Z" fill="currentColor"/><path d="M50 34 L51.4 48.6 L66 50 L51.4 51.4 L50 66 L48.6 51.4 L34 50 L48.6 48.6 Z" fill="currentColor" opacity=".5" transform="rotate(45 50 50)"/></svg>';
   function blocoVazio(i) {
     const c = COLECOES[i % COLECOES.length];
-    return `<article class="card card-vazio"><a href="index.html#concierge" class="card-img vazio-img" aria-label="Register your interest">${ESTRELA}<span class="vazio-num">${["I", "II", "III", "IV", "V", "VI", "VII", "VIII"][i % 8]}</span></a>
+    return `<article class="card card-vazio"><a href="index.html#concierge" class="card-img vazio-img" aria-label="Register your interest">${ESTRELA}</a>
       <div class="card-info"><span class="card-col">${esc(c.nome)}</span><span class="card-nome">Unveiling soon</span><a class="parc link-interesse" href="index.html#concierge">Register your interest</a></div></article>`;
   }
   const blocosVazios = (n) => Array.from({ length: n }, (_, i) => blocoVazio(i)).join("");

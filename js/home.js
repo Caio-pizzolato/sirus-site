@@ -34,7 +34,7 @@
       <a class="arco arco-${i}" href="colecao.html?col=${c.id}">
         <div class="arco-janela">
           <svg viewBox="0 0 200 200" aria-hidden="true"><circle cx="100" cy="100" r="58" fill="none" stroke="currentColor" stroke-width=".7"/><circle cx="100" cy="100" r="52" fill="none" stroke="currentColor" stroke-width=".35" opacity=".6"/><path d="${estrela(100, 100, 40, 3.2, 22)}" fill="currentColor"/></svg>
-          <span class="arco-num">${["I", "II", "III", "IV"][i]}</span>
+          
         </div>
         <div class="arco-txt"><h3>${c.nome}</h3><p>${c.frase}</p><span class="arco-link">${PRODUTOS.some((p) => p.colecao === c.id) ? "Explore" : "Unveiling soon"}</span></div>
       </a>`).join("");
