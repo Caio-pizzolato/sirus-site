@@ -2,7 +2,7 @@
 (function () {
   const $ = (s, el = document) => el.querySelector(s);
   const $$ = (s, el = document) => [...el.querySelectorAll(s)];
-  const PH = "img/favicon.svg";
+  const PH = "img/em-breve.svg";
   const brl = (v) => (window.StoreCurrency ? StoreCurrency.money(v) : Number(v).toLocaleString(LOJA.idioma || "en-IE", { style: "currency", currency: LOJA.moeda || "EUR", maximumFractionDigits: 0 }));
   const parcela = (v) => (LOJA.parcelas ? `or ${LOJA.parcelas} interest-free payments of ${brl(v / LOJA.parcelas)}` : "");
   const off = (p) => (p.precoAntigo ? Math.round((1 - p.preco / p.precoAntigo) * 100) : 0);
@@ -61,14 +61,14 @@
   window.SirusIcon = ICON;
 
   function montarLayout() {
-    const frases = ["INSURED DELIVERY, SIGNATURE REQUIRED", "PRESENTED IN THE SÍRIUS CASE", "PRIVATE APPOINTMENTS ON REQUEST", "SECURE CHECKOUT"];
+    const frases = ["INSURED DELIVERY, SIGNATURE REQUIRED", "PRESENTED IN THE SÍRIUS CASE", "PRIVATE VIEWINGS BY APPOINTMENT", "SECURE CHECKOUT"];
     const faixa = Array(4).fill(frases).flat().map((f) => `<span>${f}</span><i>◆</i>`).join("");
     document.body.insertAdjacentHTML("afterbegin", `
       <div class="anuncio" aria-label="Announcements"><div class="anuncio-track">${faixa}${faixa}</div></div>
       <header class="topo">
         <div class="topo-in">
           <button class="ico menu-btn" aria-label="Open menu">${ICON.menu}</button>
-          <nav class="nav-desk nav-esq"><a href="colecao.html">Watches</a><a href="index.html#colecoes">Collections</a><a href="index.html#maison">The Maison</a></nav>
+          <nav class="nav-desk nav-esq"><a href="colecao.html">Watches</a><a href="index.html#colecoes">Collections</a><a href="index.html#emblema">The Maison</a><a href="index.html#concierge">Concierge</a></nav>
           <a href="index.html" class="logo notranslate" translate="no" aria-label="Sírius — home">${LOGO_SVG}</a>
           <div class="topo-acoes">
             <a class="ico" href="colecao.html" aria-label="Search">${ICON.busca}</a>
@@ -92,7 +92,7 @@
     document.body.insertAdjacentHTML("beforeend", `
       <section class="selos">
         <div><strong>Insured delivery</strong><span>Signature required</span></div>
-        <div><strong>The Sírius case</strong><span>With certificate of origin</span></div>
+        <div><strong>The Sírius case</strong><span>Presented by hand</span></div>
         <div><strong>Secure payment</strong><span>Processed by Stripe</span></div>
         <div><strong>Concierge</strong><span>Private appointments</span></div>
       </section>
@@ -100,7 +100,7 @@
         <div class="rodape-in">
           <div class="rodape-marca">
             <a href="index.html" class="logo notranslate" translate="no" aria-label="Sírius">${LOGO_SVG}</a>
-            <p>Time, measured in light.</p>
+            <p>The first clock was a star.</p>
           </div>
           <div><h4>Watches</h4><a href="colecao.html">All watches</a>${COLECOES.map((c) => `<a href="colecao.html?col=${c.id}">${c.nome}</a>`).join("")}</div>
           <div><h4>Help</h4><a href="index.html#faq">FAQ</a><a href="https://wa.me/${LOJA.whatsapp}" target="_blank" rel="noopener">Contact us</a><a href="carrinho.html">Cart</a></div>
@@ -169,10 +169,19 @@
       </div>
     </article>`;
   }
+  const ESTRELA = '<svg class="estrela-vazio" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="46" fill="none" stroke="currentColor" stroke-width=".6"/><circle cx="50" cy="50" r="42" fill="none" stroke="currentColor" stroke-width=".3" opacity=".6"/>' + Array.from({ length: 12 }, (_, i) => { const a = i * 30 * Math.PI / 180, r1 = 36, r2 = i % 3 ? 40 : 42; return `<line x1="${50 + r1 * Math.sin(a)}" y1="${50 - r1 * Math.cos(a)}" x2="${50 + r2 * Math.sin(a)}" y2="${50 - r2 * Math.cos(a)}" stroke="currentColor" stroke-width="${i % 3 ? .5 : 1}"/>`; }).join("") + '<path d="M50 22 L52.2 47.8 L78 50 L52.2 52.2 L50 78 L47.8 52.2 L22 50 L47.8 47.8 Z" fill="currentColor"/><path d="M50 34 L51.4 48.6 L66 50 L51.4 51.4 L50 66 L48.6 51.4 L34 50 L48.6 48.6 Z" fill="currentColor" opacity=".5" transform="rotate(45 50 50)"/></svg>';
+  function blocoVazio(i) {
+    const c = COLECOES[i % COLECOES.length];
+    return `<article class="card card-vazio"><a href="index.html#concierge" class="card-img vazio-img" aria-label="Register your interest">${ESTRELA}<span class="vazio-num">${["I", "II", "III", "IV", "V", "VI", "VII", "VIII"][i % 8]}</span></a>
+      <div class="card-info"><span class="card-col">${esc(c.nome)}</span><span class="card-nome">Unveiling soon</span><a class="parc link-interesse" href="index.html#concierge">Register your interest</a></div></article>`;
+  }
+  const blocosVazios = (n) => Array.from({ length: n }, (_, i) => blocoVazio(i)).join("");
+  window.SiriusVazios = blocosVazios;
   function ligarAdd(root = document) {
     $$("[data-add]", root).forEach((b) => (b.onclick = (e) => { e.preventDefault(); const p = byId(b.dataset.add); location.href = `produto.html?id=${p.id}`; }));
   }
   function carrossel(el, lista) {
+    if (!lista.length) { el.classList.add("grade-vazia"); el.innerHTML = `<div class="grid grid-vazia">${blocosVazios(4)}</div>`; return; }
     el.innerHTML = `<button class="car-btn esq" aria-label="Previous">${ICON.setaE}</button>
       <div class="car-trilho">${lista.map(card).join("")}</div>
       <button class="car-btn dir" aria-label="Next">${ICON.seta}</button>`;
@@ -279,7 +288,8 @@
       if (ordem.value === "menor") l = [...l].sort((a, b) => a.preco - b.preco);
       if (ordem.value === "maior") l = [...l].sort((a, b) => b.preco - a.preco);
       $("#col-qtd").textContent = `${l.length} ${l.length === 1 ? "timepiece" : "timepieces"}`;
-      grid.innerHTML = l.length ? l.map(card).join("") : `<p class="aval-vazio">No timepieces found.</p>`;
+      grid.innerHTML = l.length ? l.map(card).join("") : PRODUTOS.length ? `<p class="aval-vazio">No timepieces found.</p>` : blocosVazios(8);
+      const aviso = $("#col-aviso"); if (aviso) aviso.hidden = !!PRODUTOS.length; const barra = $(".col-barra"); if (barra) barra.hidden = !PRODUTOS.length;
       ligarAdd(grid);
     };
     busca.oninput = render; ordem.onchange = render; render();
@@ -288,6 +298,10 @@
   function paginaProduto() {
     const box = $("#produto"); if (!box) return;
     const p = byId(new URLSearchParams(location.search).get("id")) || PRODUTOS[0];
+    if (!p) {
+      box.innerHTML = `<div class="vazio grande em-breve">${ESTRELA}<span class="sobretitulo">The collection</span><h1>Unveiling soon</h1><p>Our first timepieces are being prepared. Register your interest and our concierge will contact you before they are presented.</p><a href="index.html#concierge" class="btn">Register your interest</a></div>`;
+      return;
+    }
     document.title = `${p.nome} — Sírius`;
     const d = off(p);
     box.innerHTML = `
@@ -309,7 +323,7 @@
           </div>
           <button class="btn btn-claro btn-full" id="comprar">Buy now</button>
           ${blocoPagamentos()}
-          <ul class="garantias"><li>✦ Delivered insured, signature required</li><li>✦ Presented in the Sírius case with certificate of origin</li><li>✦ Private viewing by appointment</li></ul>
+          <ul class="garantias"><li>✦ Delivered insured, signature required</li><li>✦ Presented in the Sírius case</li><li>✦ Private viewing by appointment</li></ul>
           <details open><summary>Specifications</summary><dl class="specs">${Object.entries(p.specs || {}).map(([k, v]) => `<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join("")}</dl></details>
           <details><summary>The piece</summary><p>${esc(p.descricao || "")}</p></details>
           <details><summary>Delivery</summary><p>Each timepiece is inspected, then dispatched insured within 2 business days of payment confirmation. Delivery requires a signature; tracking is sent by email.</p></details>

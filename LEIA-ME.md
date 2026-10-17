@@ -1,27 +1,33 @@
 # Sírius — Maison Horlogère (site em inglês)
 
-Mesma base da Vera e da Reserve Avenue: HTML, CSS e JavaScript, com checkout da Stripe no Vercel.
+HTML, CSS e JavaScript, com checkout da Stripe no Vercel (mesma base da Vera e da Reserve Avenue).
 
-## Publicar no Vercel
-vercel.com → **Add New → Project** → importe `sirus-site` → Framework **Other** → **Deploy**.
-Pagamentos: em **Settings → Environment Variables**, crie `STRIPE_SECRET_KEY` com a sua chave e faça **Redeploy**.
+## Publicar
+- **Vercel:** **Add New → Project** → importe `sirus-site` → Framework **Other** → **Deploy**.
+- **Pagamentos:** em **Settings → Environment Variables**, crie `STRIPE_SECRET_KEY` com a sua chave e faça **Redeploy**.
 
 ## Identidade
-- **Nome e emblema:** Sírius, a estrela mais brilhante do céu. A logo tem uma estrela de 8 pontas (4 longas para os pontos cardeais, 4 curtas para os intermediários), 12 índices de hora, dois anéis (caixa e luneta) e um ponto central, o pivô dos ponteiros. A seção "The emblem" da página inicial conta essa história.
-- **Paleta:** obsidiana `#0d0e10`, platina `#d9dce1` e azul-gelo `#a9c7d9`.
-- **Tipografia:** Italiana (títulos), Bodoni Moda (itálicos e nomes) e Manrope (texto).
+- **Nome e emblema:** Sírius, a estrela mais brilhante do céu. A logo tem uma estrela de 8 pontas (4 longas para os pontos cardeais, 4 curtas para os intermediários), 12 índices de hora, 2 anéis (caixa e luneta) e 1 ponto central. A seção "The emblem" conta essa história.
+- **Paleta "palazzo":** nogueira `#100b08`, mármore `#f1e8d8`, bordô `#3b1214` e dourado `#c9a35f`, com filetes e arcos inspirados nos palácios de Milão.
+- **Tipografia:** Italiana (títulos), Bodoni Moda (itálicos) e Manrope (texto).
 
-## Relógios
-Os 8 modelos são da própria Sírius, com imagens desenhadas em vetor (`img/relogios/`).
-- Para criar ou ajustar um modelo, edite `js/produtos.js` e rode `node tools/gerar-relogios.js`.
-- Para usar fotos reais, troque os caminhos em `imagensPorCor` / `imagens`.
-- **As fichas técnicas e os números da seção "The Maison" (241 componentes, 70 h, etc.) são exemplos.** Troque pelos dados reais antes de vender.
+## Banner
+- **Computador** (tela deitada): `img/banners/hero-desktop.webp` / `.jpg`.
+- **Celular** (tela em pé): o vídeo `img/video/salao-720.mp4`, ou `salao-1080.mp4` em telas maiores. A imagem de capa enquanto o vídeo carrega é `salao-poster.jpg`.
+- O vídeo só é baixado no celular. No computador ele nem carrega.
+
+## Produtos
+O catálogo começa **vazio**. Enquanto não houver relógios, o site mostra blocos de "Unveiling soon" com o emblema e um convite para registrar interesse.
+- Para cadastrar, siga o modelo no topo de `js/produtos.js`. Coloque as fotos em `img/relogios/`.
+- Assim que existir o primeiro relógio, os blocos são trocados automaticamente pelos produtos.
+- As coleções (Dress, Complications, Sport & Sea, Haute Horlogerie) ficam em `COLECOES`.
+
+## Concierge
+O formulário "A private viewing" abre o e-mail da pessoa já preenchido para `LOJA.email`. Troque `concierge@seusite.com` pelo seu e-mail em `js/produtos.js`.
 
 ## Moeda e idioma automáticos
-- **Moeda:** detectada pelo IP do visitante (`api/geo.js`). A cobrança é em EUR; o rodapé avisa isso.
-- **Idioma:** tradução automática para o idioma do navegador (`js/traducao.js`). Logo e preços nunca são traduzidos.
+- **Moeda:** pelo IP do visitante (`api/geo.js`). A cobrança é em EUR.
+- **Idioma:** tradução automática para o idioma do navegador (`js/traducao.js`).
 
 ## Avaliações
-Só avaliações reais de clientes, em `js/produtos.js` → `AVALIACOES`. Enquanto a lista estiver vazia, a seção fica escondida. Para ver o layout, abra com `?demo=1`.
-
-Os ícones de bandeira em `img/pagamento/` vêm do pacote aberto payment-icons (licença MPL-2.0).
+Só avaliações reais, em `AVALIACOES`. A seção fica escondida enquanto a lista estiver vazia.

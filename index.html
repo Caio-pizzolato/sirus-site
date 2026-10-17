@@ -2,50 +2,56 @@
 <html lang="en">
 <head>
   <title>Sírius — Maison Horlogère</title>
-  <meta name="description" content="Sírius: fine watchmaking. Meridian, Lune, Atlas, Abyss and Haute Horlogerie timepieces.">
-  <meta charset="utf-8">
+  <meta name="description" content="Sírius, maison horlogère. Named for the brightest star in the night sky: fine watches, presented by appointment.">
+    <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#0d0e10">
+  <meta name="theme-color" content="#100b08">
   <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
   <link rel="preload" href="fonts/italiana-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/manrope-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="css/style.css">
   <script src="js/logo.js" defer></script>
   <script src="js/produtos.js" defer></script>
-  <script src="js/relogio.js" defer></script>
   <script src="js/traducao.js" defer></script>
   <script src="js/moedas.js" defer></script>
   <script src="js/app.js" defer></script>
+  <link rel="preload" as="image" href="img/banners/hero-desktop.webp" type="image/webp" media="(orientation: landscape)">
   <script src="js/home.js" defer></script>
 </head>
 <body class="home">
 <main>
+  <!-- BANNER: computador = img/banners/hero-desktop · celular = vídeo img/video/salao-*.mp4 -->
   <section class="hero" aria-label="Sírius">
-    <div class="ceu" id="ceu" aria-hidden="true"></div>
-    <div class="hero-grid">
-      <div class="hero-txt">
-        <small>Maison Horlogère</small>
-        <h1>Time, measured <em>in light</em></h1>
-        <p>Named for the brightest star in the night sky. Each Sírius is assembled, regulated and finished by hand, to keep a single promise: the hour, beautifully.</p>
-        <div class="hero-ctas">
-          <a href="colecao.html" class="btn btn-luz">Discover the watches</a>
-          <a href="#colecoes" class="btn btn-vidro">The collections</a>
-        </div>
+    <picture class="hero-foto">
+      <source media="(orientation: portrait)" srcset="img/video/salao-poster.jpg">
+      <source type="image/webp" srcset="img/banners/hero-desktop.webp">
+      <img src="img/banners/hero-desktop.jpg" alt="" fetchpriority="high">
+    </picture>
+    <video class="hero-video" muted loop playsinline preload="none" poster="img/video/salao-poster.jpg" aria-hidden="true"></video>
+    <div class="hero-veu" aria-hidden="true"></div>
+    <div class="hero-moldura" aria-hidden="true"></div>
+    <div class="hero-txt">
+      <svg class="hero-estrela" viewBox="0 0 100 100" aria-hidden="true"><defs><linearGradient id="hg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f6e7bf"/><stop offset=".5" stop-color="#c9a35f"/><stop offset="1" stop-color="#e8d3a0"/></linearGradient></defs><path d="M50 2 L55 45 L98 50 L55 55 L50 98 L45 55 L2 50 L45 45 Z" fill="url(#hg)"/><path d="M50 22 L53 47 L78 50 L53 53 L50 78 L47 53 L22 50 L47 47 Z" fill="url(#hg)" opacity=".75" transform="rotate(45 50 50)"/></svg>
+      <small>Maison Horlogère</small>
+      <h1>The first clock <em>was a star</em></h1>
+      <p>Sírius, the brightest star in the night sky, once told the ancient world that a new year had begun. Today it lends its name to a house devoted to the finest timepieces.</p>
+      <div class="hero-ctas">
+        <a href="#colecoes" class="btn btn-ouro">Discover the collections</a>
+        <a href="#concierge" class="btn btn-vidro">Book a private viewing</a>
       </div>
-      <div class="hero-relogio-wrap"><div class="hero-relogio" id="hero-relogio"></div><p class="hero-legenda">Lune 40 · showing your local time</p></div>
     </div>
     <a href="#colecoes" class="hero-rolar" aria-label="Scroll down"><span></span></a>
   </section>
 
   <section class="secao revela" id="colecoes">
-    <div class="secao-topo centro"><div><span class="sobretitulo">Five constellations</span><h2>The Collections</h2></div></div>
-    <div class="colecoes-grid" id="colecoes-grid"></div>
+    <div class="secao-topo centro"><div><span class="sobretitulo">Four constellations</span><h2>The Collections</h2><div class="ornamento" aria-hidden="true"><i></i>✦<i></i></div></div></div>
+    <div class="arcos" id="arcos"></div>
   </section>
 
   <section class="manifesto revela">
-    <svg class="estrela-m" viewBox="0 0 60 60" aria-hidden="true"><path d="M30 2 L33 27 L58 30 L33 33 L30 58 L27 33 L2 30 L27 27 Z" fill="currentColor"/><path d="M30 14 L32 28 L46 30 L32 32 L30 46 L28 32 L14 30 L28 28 Z" fill="currentColor" opacity=".35" transform="rotate(45 30 30)"/></svg>
-    <p>A watch is the only object we wear that is always working for us. We make ours to be worthy of that.</p>
-    <small>The Sírius Atelier</small>
+    <div class="ornamento" aria-hidden="true"><i></i>✦<i></i></div>
+    <p>A watch is the only object we wear that is always working for us. Ours should be worthy of that.</p>
+    <small>Sírius</small>
   </section>
 
   <section class="secao revela" id="emblema">
@@ -54,48 +60,51 @@
       <div class="emblema-txt">
         <span class="sobretitulo">The emblem</span>
         <h2>Before there were clocks, <em>there was Sírius</em></h2>
-        <p class="emblema-intro">Sírius is the brightest star in the night sky. In ancient Egypt, its first rising before dawn announced the new year and the flooding of the Nile. It was humanity's first great timekeeper, and it is the star at the heart of every watch we make.</p>
+        <p class="emblema-intro">Sírius is the brightest star in the night sky. In ancient Egypt, its first rising before dawn announced the new year and the flooding of the Nile. It was one of humanity's first great timekeepers, and it is the star at the heart of our emblem.</p>
         <ol class="emblema-lista">
           <li data-parte="pontas"><span>8</span><div><h3>Eight points</h3><p>Four long rays for the cardinal directions, four shorter ones for the paths between them: the compass that navigators once read from the stars.</p></div></li>
-          <li data-parte="indices"><span>12</span><div><h3>Twelve hours</h3><p>Around the star, twelve marks. Three are drawn heavier, as on a dial, for twelve, three, six and nine o'clock.</p></div></li>
+          <li data-parte="indices"><span>12</span><div><h3>Twelve hours</h3><p>Around the star, twelve marks. Four are drawn heavier, as on a dial, for twelve, three, six and nine o'clock.</p></div></li>
           <li data-parte="anel"><span>2</span><div><h3>Two rings</h3><p>An outer ring for the case, a finer one for the bezel. The star sits where a dial would be.</p></div></li>
-          <li data-parte="centro"><span>1</span><div><h3>One point of light</h3><p>At the centre, the pivot every hand turns around. The star's light takes 8.6 years to reach us; we spend our time making it worth the wait.</p></div></li>
+          <li data-parte="centro"><span>1</span><div><h3>One point of light</h3><p>At the centre, the pivot every hand turns around. The star's light takes 8.6 years to reach us.</p></div></li>
         </ol>
       </div>
     </div>
   </section>
 
-  <section class="secao revela">
-    <div class="secao-topo"><div><span class="sobretitulo">Icons of the maison</span><h2>Signature Timepieces</h2></div><a href="colecao.html">View all</a></div>
-    <div class="carrossel" data-colecao="best-sellers"></div>
+  <section class="secao revela" id="selecao">
+    <div class="secao-topo"><div><span class="sobretitulo">The selection</span><h2>First Timepieces</h2></div><a href="colecao.html">View all</a></div>
+    <div class="carrossel" data-colecao="featured"></div>
   </section>
 
-  <section class="secao revela" id="maison">
-    <div class="numeros">
-      <div><strong>241</strong><span>Components in the Calibre S-01</span></div>
-      <div><strong>70<small>h</small></strong><span>Power reserve</span></div>
-      <div><strong>28,800</strong><span>Vibrations per hour</span></div>
-      <div><strong>25</strong><span>Pieces of the Alpha Tourbillon</span></div>
-    </div>
-  </section>
-
-  <section class="secao revela"><div class="destaque" id="peca-destaque"></div></section>
-
   <section class="secao revela">
-    <div class="atelier">
-      <div><span class="sobretitulo">Savoir-faire</span><h2>The Atelier</h2></div>
+    <div class="experiencia">
+      <div class="experiencia-topo"><span class="sobretitulo">The Sírius experience</span><h2>From the first glance <em>to the first hour</em></h2></div>
       <ol class="etapas">
-        <li><span>I</span><h3>Design</h3><p>Every case begins as a pencil sketch, refined until its proportions feel inevitable.</p></li>
-        <li><span>II</span><h3>Movement</h3><p>Bridges are bevelled and polished by hand; screws are blued over an open flame.</p></li>
-        <li><span>III</span><h3>Regulation</h3><p>Each watch is adjusted in several positions and tested for weeks before it leaves us.</p></li>
-        <li><span>IV</span><h3>Presentation</h3><p>Delivered in the Sírius case, with its certificate of origin and a personal letter.</p></li>
+        <li><span>I</span><h3>Selection</h3><p>Every piece is chosen for its design, its finishing and the way it wears on the wrist.</p></li>
+        <li><span>II</span><h3>Inspection</h3><p>Before it leaves us, each watch is examined and its timekeeping checked.</p></li>
+        <li><span>III</span><h3>Presentation</h3><p>Delivered insured, in the Sírius case, with a handwritten card.</p></li>
+        <li><span>IV</span><h3>Concierge</h3><p>A single contact for questions, sizing and care, for as long as you wear it.</p></li>
       </ol>
     </div>
   </section>
 
-  <section class="secao revela">
-    <div class="secao-topo"><div><span class="sobretitulo">Recently unveiled</span><h2>New Arrivals</h2></div><a href="colecao.html?c=new-in">View all</a></div>
-    <div class="carrossel" data-colecao="new-in"></div>
+  <section class="secao revela" id="concierge">
+    <div class="concierge">
+      <div class="concierge-foto"><img src="img/video/salao-relogio.jpg" alt="Two clients comparing their watches in the Sírius salon" loading="lazy"></div>
+      <div class="concierge-txt">
+        <span class="sobretitulo">Concierge</span>
+        <h2>A private <em>viewing</em></h2>
+        <p>Tell us what you are looking for and when you would like to see it. Our concierge will reply personally.</p>
+        <form class="concierge-form" id="concierge-form">
+          <div class="campo"><input id="cf-nome" name="nome" required placeholder=" " autocomplete="name"><label for="cf-nome">Name</label></div>
+          <div class="campo"><input id="cf-email" name="email" type="email" required placeholder=" " autocomplete="email"><label for="cf-email">Email</label></div>
+          <div class="campo"><select id="cf-interesse" name="interesse"><option>Any collection</option></select><label for="cf-interesse" class="fixo">Interested in</label></div>
+          <div class="campo"><textarea id="cf-msg" name="mensagem" rows="3" placeholder=" "></textarea><label for="cf-msg">Message (optional)</label></div>
+          <button class="btn btn-ouro">Request an appointment</button>
+          <p class="mini" id="cf-ok" role="status"></p>
+        </form>
+      </div>
+    </div>
   </section>
 
   <section class="secao revela">
@@ -104,10 +113,10 @@
   </section>
 
   <section class="secao revela" id="faq">
-    <div class="secao-topo centro"><div><span class="sobretitulo">Concierge</span><h2>Frequently Asked</h2></div></div>
+    <div class="secao-topo centro"><div><span class="sobretitulo">Questions</span><h2>Frequently Asked</h2><div class="ornamento" aria-hidden="true"><i></i>✦<i></i></div></div></div>
     <div class="faq">
       <details><summary>How is my watch delivered?</summary><p>Every timepiece is shipped insured, in discreet packaging, and requires a signature on delivery. Tracking is sent by email.</p></details>
-      <details><summary>Can I see a watch in person before buying?</summary><p>Yes. Contact our concierge to arrange a private appointment.</p></details>
+      <details><summary>Can I see a watch before buying?</summary><p>Yes. Request a private viewing through our concierge and we will arrange a time with you.</p></details>
       <details><summary>How do I pay?</summary><p>Pay securely by card (Visa, Mastercard, Amex and more), Apple Pay or Google Pay. Payments are processed by Stripe; we never see your card details.</p></details>
       <details><summary>Can I return a watch?</summary><p>You can request a return within 7 days of delivery, unworn, with its protective film, case and papers.</p></details>
       <details><summary>Will I pay duties or taxes?</summary><p>Depending on your country, import duties or taxes may be charged on delivery. These are set by your local customs office.</p></details>
