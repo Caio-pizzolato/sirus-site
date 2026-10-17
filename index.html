@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Sírius — Maison Horlogère</title>
+  <meta name="description" content="Sírius: fine watchmaking. Meridian, Lune, Atlas, Abyss and Haute Horlogerie timepieces.">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0d0e10">
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="fonts/italiana-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/manrope-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/logo.js" defer></script>
+  <script src="js/produtos.js" defer></script>
+  <script src="js/relogio.js" defer></script>
+  <script src="js/traducao.js" defer></script>
+  <script src="js/moedas.js" defer></script>
+  <script src="js/app.js" defer></script>
+  <script src="js/home.js" defer></script>
+</head>
+<body class="home">
+<main>
+  <section class="hero" aria-label="Sírius">
+    <div class="ceu" id="ceu" aria-hidden="true"></div>
+    <div class="hero-grid">
+      <div class="hero-txt">
+        <small>Maison Horlogère</small>
+        <h1>Time, measured <em>in light</em></h1>
+        <p>Named for the brightest star in the night sky. Each Sírius is assembled, regulated and finished by hand, to keep a single promise: the hour, beautifully.</p>
+        <div class="hero-ctas">
+          <a href="colecao.html" class="btn btn-luz">Discover the watches</a>
+          <a href="#colecoes" class="btn btn-vidro">The collections</a>
+        </div>
+      </div>
+      <div class="hero-relogio-wrap"><div class="hero-relogio" id="hero-relogio"></div><p class="hero-legenda">Lune 40 · showing your local time</p></div>
+    </div>
+    <a href="#colecoes" class="hero-rolar" aria-label="Scroll down"><span></span></a>
+  </section>
+
+  <section class="secao revela" id="colecoes">
+    <div class="secao-topo centro"><div><span class="sobretitulo">Five constellations</span><h2>The Collections</h2></div></div>
+    <div class="colecoes-grid" id="colecoes-grid"></div>
+  </section>
+
+  <section class="manifesto revela">
+    <svg class="estrela-m" viewBox="0 0 60 60" aria-hidden="true"><path d="M30 2 L33 27 L58 30 L33 33 L30 58 L27 33 L2 30 L27 27 Z" fill="currentColor"/><path d="M30 14 L32 28 L46 30 L32 32 L30 46 L28 32 L14 30 L28 28 Z" fill="currentColor" opacity=".35" transform="rotate(45 30 30)"/></svg>
+    <p>A watch is the only object we wear that is always working for us. We make ours to be worthy of that.</p>
+    <small>The Sírius Atelier</small>
+  </section>
+
+  <section class="secao revela" id="emblema">
+    <div class="emblema">
+      <div class="emblema-arte" id="emblema-arte" aria-hidden="true"></div>
+      <div class="emblema-txt">
+        <span class="sobretitulo">The emblem</span>
+        <h2>Before there were clocks, <em>there was Sírius</em></h2>
+        <p class="emblema-intro">Sírius is the brightest star in the night sky. In ancient Egypt, its first rising before dawn announced the new year and the flooding of the Nile. It was humanity's first great timekeeper, and it is the star at the heart of every watch we make.</p>
+        <ol class="emblema-lista">
+          <li data-parte="pontas"><span>8</span><div><h3>Eight points</h3><p>Four long rays for the cardinal directions, four shorter ones for the paths between them: the compass that navigators once read from the stars.</p></div></li>
+          <li data-parte="indices"><span>12</span><div><h3>Twelve hours</h3><p>Around the star, twelve marks. Three are drawn heavier, as on a dial, for twelve, three, six and nine o'clock.</p></div></li>
+          <li data-parte="anel"><span>2</span><div><h3>Two rings</h3><p>An outer ring for the case, a finer one for the bezel. The star sits where a dial would be.</p></div></li>
+          <li data-parte="centro"><span>1</span><div><h3>One point of light</h3><p>At the centre, the pivot every hand turns around. The star's light takes 8.6 years to reach us; we spend our time making it worth the wait.</p></div></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao revela">
+    <div class="secao-topo"><div><span class="sobretitulo">Icons of the maison</span><h2>Signature Timepieces</h2></div><a href="colecao.html">View all</a></div>
+    <div class="carrossel" data-colecao="best-sellers"></div>
+  </section>
+
+  <section class="secao revela" id="maison">
+    <div class="numeros">
+      <div><strong>241</strong><span>Components in the Calibre S-01</span></div>
+      <div><strong>70<small>h</small></strong><span>Power reserve</span></div>
+      <div><strong>28,800</strong><span>Vibrations per hour</span></div>
+      <div><strong>25</strong><span>Pieces of the Alpha Tourbillon</span></div>
+    </div>
+  </section>
+
+  <section class="secao revela"><div class="destaque" id="peca-destaque"></div></section>
+
+  <section class="secao revela">
+    <div class="atelier">
+      <div><span class="sobretitulo">Savoir-faire</span><h2>The Atelier</h2></div>
+      <ol class="etapas">
+        <li><span>I</span><h3>Design</h3><p>Every case begins as a pencil sketch, refined until its proportions feel inevitable.</p></li>
+        <li><span>II</span><h3>Movement</h3><p>Bridges are bevelled and polished by hand; screws are blued over an open flame.</p></li>
+        <li><span>III</span><h3>Regulation</h3><p>Each watch is adjusted in several positions and tested for weeks before it leaves us.</p></li>
+        <li><span>IV</span><h3>Presentation</h3><p>Delivered in the Sírius case, with its certificate of origin and a personal letter.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="secao revela">
+    <div class="secao-topo"><div><span class="sobretitulo">Recently unveiled</span><h2>New Arrivals</h2></div><a href="colecao.html?c=new-in">View all</a></div>
+    <div class="carrossel" data-colecao="new-in"></div>
+  </section>
+
+  <section class="secao revela">
+    <div class="secao-topo centro"><div><span class="sobretitulo">From our clients</span><h2>Testimonials</h2></div></div>
+    <div id="avaliacoes-home"></div>
+  </section>
+
+  <section class="secao revela" id="faq">
+    <div class="secao-topo centro"><div><span class="sobretitulo">Concierge</span><h2>Frequently Asked</h2></div></div>
+    <div class="faq">
+      <details><summary>How is my watch delivered?</summary><p>Every timepiece is shipped insured, in discreet packaging, and requires a signature on delivery. Tracking is sent by email.</p></details>
+      <details><summary>Can I see a watch in person before buying?</summary><p>Yes. Contact our concierge to arrange a private appointment.</p></details>
+      <details><summary>How do I pay?</summary><p>Pay securely by card (Visa, Mastercard, Amex and more), Apple Pay or Google Pay. Payments are processed by Stripe; we never see your card details.</p></details>
+      <details><summary>Can I return a watch?</summary><p>You can request a return within 7 days of delivery, unworn, with its protective film, case and papers.</p></details>
+      <details><summary>Will I pay duties or taxes?</summary><p>Depending on your country, import duties or taxes may be charged on delivery. These are set by your local customs office.</p></details>
+    </div>
+  </section>
+</main>
+</body>
+</html>

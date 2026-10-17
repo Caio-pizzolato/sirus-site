@@ -1,0 +1,4 @@
+.DS_Store
+.vercel
+*.png.tmp
+_*.html
